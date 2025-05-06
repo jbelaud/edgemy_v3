@@ -13,7 +13,21 @@ export const pathnames = {
 export type AppPathnames = keyof typeof pathnames;
 
 export default getRequestConfig(async ({locale}) => {
-  if (!locale) throw new Error('Locale is required');
+  if (!locale) {
+    return {
+      locale: defaultLocale,
+      messages: {},
+      timeZone: 'Europe/Paris'
+    };
+  }
+  
+  if (!locales.includes(locale as (typeof locales)[number])) {
+    return {
+      locale: defaultLocale,
+      messages: {},
+      timeZone: 'Europe/Paris'
+    };
+  }
   
   const messages = await Promise.all(
     ['common', 'home', 'auth', 'footer'].map(ns =>

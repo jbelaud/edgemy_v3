@@ -1,11 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 
 import "@workspace/ui/globals.css"
 import { Providers } from "@/components/providers"
 import { getMessages } from "@/lib/i18n"
-import { locales } from "@/i18n.config"
+import { locales, defaultLocale } from "@/i18n.config"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default async function LocaleLayout({
   const locale = (await Promise.resolve(params)).locale;
 
   if (!locales.includes(locale as (typeof locales)[number])) {
-    notFound();
+    redirect(`/${defaultLocale}`);
   }
 
   const messages = await getMessages(locale, ['common', 'auth', 'home', 'footer']);
