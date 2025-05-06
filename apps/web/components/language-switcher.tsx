@@ -1,0 +1,38 @@
+"use client"
+
+import { useLocale } from "next-intl"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { useTranslations } from "next-intl"
+
+export function LanguageSwitcher() {
+  const locale = useLocale()
+  const router = useRouter()
+  const t = useTranslations("common")
+
+  const switchLanguage = (newLocale: string) => {
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`
+    router.refresh()
+  }
+
+  return (
+    <div className="flex gap-2">
+      <Button
+        variant={locale === "fr" ? "default" : "outline"}
+        size="sm"
+        onClick={() => switchLanguage("fr")}
+        aria-label={t("language.fr")}
+      >
+        FR
+      </Button>
+      <Button
+        variant={locale === "en" ? "default" : "outline"}
+        size="sm"
+        onClick={() => switchLanguage("en")}
+        aria-label={t("language.en")}
+      >
+        EN
+      </Button>
+    </div>
+  )
+} 

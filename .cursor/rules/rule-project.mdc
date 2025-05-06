@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+<!-- Edgemy Project -->
+
+C'est une platforme de coaching qui mets en relation des joueurs de poker et des coachs certifiés. Les coachs devront payés un abonnement pour pouvoir proposer des coachings sur la platforme, possibilité de proposer plusieurs coachings de plusieurs domaines/types/catégories. Il pourra avoir des coachs de poker et mental lié au poker.
+
+L'application mets juste en relation des annonces de coachings des coachs qui ont pris un abonnement payant avec des utilisateurs(joueurs amateurs, semi-pro ou pro)
+
+Les coachs pourront mettre leurs disponibilités via un calendrier intéractif 
+
+Les utilisateurs (élèves) pourront s'inscrire gratuitement dans un premier temps, et pourront choisir leur coach via une page dédié à la recherche de coachs disponibles sur le site.
+
+Des pages personnalisés pour les coachs et pour les joueurs afin de se présenter, avoir une bio, leurs objectifs, leurs gains, leurs victoires, etc...
+
+L'application sera sur edgemy.fr 
+Je vais avoir une page spéciale qui sera landing edgemy.fr/landing afin de créer une page de landing page pour récupérer des emails de coachs et de joueurs.
+
+Le site sera en français et en anglais, il y aura un bouton pour choisir sa langue avec préfix pour le seo-friendly
+
+J'utilise toujours pnpm en gestionnaire!!!
+
+

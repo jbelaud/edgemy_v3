@@ -1,0 +1,26 @@
+{
+  "navigation": {
+    "coachs": "Coachs",
+    "formations": "Formations",
+    "ressources": "Ressources",
+    "tournois": "Tournois",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "auth": {
+    "signUp": "S'inscrire",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "profile": "Mon profil"
+  },
+  "buttons": {
+    "start": "Commencer",
+    "discover": "Découvrir",
+    "learnMore": "En savoir plus",
+    "contact": "Nous contacter"
+  },
+  "language": {
+    "fr": "Passer en français",
+    "en": "Switch to English"
+  }
+} 

@@ -1,0 +1,28 @@
+{
+  "about": {
+    "title": "À propos",
+    "description": "Plateforme de coaching poker connectant joueurs et coachs professionnels"
+  },
+  "navigation": {
+    "title": "Navigation",
+    "coachs": "Coachs",
+    "formations": "Formations",
+    "tournois": "Tournois"
+  },
+  "resources": {
+    "title": "Ressources",
+    "blog": "Blog",
+    "guides": "Guides",
+    "faq": "FAQ"
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "contact@edgemy.com",
+    "discord": "Discord"
+  },
+  "legal": {
+    "copyright": "© {year} Edgemy. Tous droits réservés.",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité"
+  }
+} 

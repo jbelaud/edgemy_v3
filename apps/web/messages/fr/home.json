@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "title": "Améliorez votre jeu de poker avec des coachs professionnels",
+    "description": "Connectez-vous avec des coachs certifiés pour progresser en poker et développer votre mental",
+    "findCoach": "Trouver un coach",
+    "becomeCoach": "Devenir coach"
+  },
+  "features": {
+    "title": "Pourquoi choisir Edgemy ?",
+    "technical": {
+      "title": "Coaching technique",
+      "description": "Apprenez les stratégies avancées et améliorez votre jeu avec des coachs expérimentés"
+    },
+    "mental": {
+      "title": "Préparation mentale",
+      "description": "Développez votre mental et gérez vos émotions pour performer en tournoi"
+    },
+    "community": {
+      "title": "Communauté active",
+      "description": "Rejoignez une communauté de joueurs passionnés et échangez avec vos pairs"
+    }
+  },
+  "cta": {
+    "title": "Prêt à passer au niveau supérieur ?",
+    "description": "Rejoignez notre plateforme et commencez votre progression dès aujourd'hui",
+    "button": "Commencer maintenant"
+  }
+} 

@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "title": "Improve your poker game with professional coaches",
+    "description": "Connect with certified coaches to progress in poker and develop your mental game",
+    "findCoach": "Find a coach",
+    "becomeCoach": "Become a coach"
+  },
+  "features": {
+    "title": "Why choose Edgemy?",
+    "technical": {
+      "title": "Technical coaching",
+      "description": "Learn advanced strategies and improve your game with experienced coaches"
+    },
+    "mental": {
+      "title": "Mental preparation",
+      "description": "Develop your mental game and manage your emotions to perform in tournaments"
+    },
+    "community": {
+      "title": "Active community",
+      "description": "Join a community of passionate players and exchange with your peers"
+    }
+  },
+  "cta": {
+    "title": "Ready to take it to the next level?",
+    "description": "Join our platform and start your progression today",
+    "button": "Get started now"
+  }
+} 
