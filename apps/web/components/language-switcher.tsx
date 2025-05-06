@@ -4,6 +4,7 @@ import { useLocale } from "next-intl"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
+import * as React from "react"
 
 export function LanguageSwitcher() {
   const locale = useLocale()

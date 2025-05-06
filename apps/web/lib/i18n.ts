@@ -15,5 +15,5 @@ export async function getMessages(locale: string, namespaces: string[] = ['commo
   );
 
   // Fusionner toutes les traductions de namespaces
-  return Object.assign({}, ...messages);
+  return messages.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 }

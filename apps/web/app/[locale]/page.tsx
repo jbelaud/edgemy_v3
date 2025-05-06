@@ -7,13 +7,11 @@ import { getMessages } from '@/lib/i18n'
 export const dynamic = 'force-dynamic'
 
 type Props = {
-  params: {
-    locale: string
-  }
+  params: { locale: string }
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { locale } = params
+  const locale = (await Promise.resolve(params)).locale;
   const messages = await getMessages(locale, ['common', 'home']);
   return {
     title: messages.home?.metaTitle || 'Edgemy | Plateforme de coaching poker'
