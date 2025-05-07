@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Button } from "@workspace/ui/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useTranslations } from "next-intl"

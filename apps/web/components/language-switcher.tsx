@@ -1,8 +1,8 @@
 "use client"
 
+import { usePathname, useRouter } from "next/navigation"
 import { useLocale } from "next-intl"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { Button } from "@workspace/ui/components/ui/button"
 import { useTranslations } from "next-intl"
 import * as React from "react"
 

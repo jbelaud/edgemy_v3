@@ -1,17 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { LockIcon, MailIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "./button.js"
+import { Input } from "./input.js"
+import { Label } from "./label.js"
+import { Checkbox } from "./checkbox.js"
 import {
   Card,
   CardContent,
@@ -19,7 +18,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "./card.js"
+import { useRouter } from "next/router.js"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Adresse e-mail invalide" }),

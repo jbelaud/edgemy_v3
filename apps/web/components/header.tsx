@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { LoginModal } from "./login-modal"
+import { Button } from "@workspace/ui/components/ui/button"
+import { LoginModal } from "@workspace/ui/components/auth/login-modal"
 import { useTranslations } from "next-intl"
 import { LanguageSwitcher } from "./language-switcher"
 

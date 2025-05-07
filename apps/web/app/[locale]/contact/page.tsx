@@ -1,10 +1,12 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useTranslations } from "next-intl"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
+import { Button } from "@workspace/ui/components/ui/button"
+import { Input } from "@workspace/ui/components/ui/input"
+import { Textarea } from "@workspace/ui/components/ui/textarea"
+import { Label } from "@workspace/ui/components/ui/label"
 
 export const dynamic = 'force-dynamic'
 
