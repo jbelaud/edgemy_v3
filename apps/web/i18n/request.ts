@@ -11,16 +11,27 @@ function loadMessages(locale: string): Messages {
 
   for (const ns of namespaces) {
     try {
+      const filePath = path.join(process.cwd(), 'messages', locale, `${ns}.json`);
+      console.log(`📂 Loading messages from: ${filePath}`);
+      
+      if (!fs.existsSync(filePath)) {
+        console.warn(`⚠️ File does not exist: ${filePath}`);
+        continue;
+      }
+
       const data = JSON.parse(
-        fs.readFileSync(
-          path.join(process.cwd(), 'messages', locale, `${ns}.json`),
-          'utf-8'
-        )
+        fs.readFileSync(filePath, 'utf-8')
       );
 
+      if (!data || typeof data !== 'object') {
+        console.warn(`⚠️ Invalid JSON data in: ${filePath}`);
+        continue;
+      }
+
       messages[ns] = data;
+      console.log(`✅ Successfully loaded ${ns} messages for ${locale}`);
     } catch (err) {
-      console.warn(`⚠️ Missing or invalid namespace file: ${locale}/${ns}.json`);
+      console.error(`❌ Error loading messages for ${locale}/${ns}.json:`, err);
     }
   }
 
@@ -29,13 +40,15 @@ function loadMessages(locale: string): Messages {
 
 export default getRequestConfig(async ({ locale }: { locale?: string }) => {
   if (!locale || !locales.includes(locale as (typeof locales)[number])) {
+    console.log(`⚠️ Invalid locale: ${locale}, falling back to fr`);
     locale = 'fr';
   }
 
+  console.log(`🌍 Loading messages for locale: ${locale}`);
   const messages = loadMessages(locale);
 
   if (Object.keys(messages).length === 0 && locale !== 'fr') {
-    console.warn(`🔁 Falling back to French messages`);
+    console.warn(`🔁 No messages found for ${locale}, falling back to French`);
     return {
       locale: 'fr',
       messages: loadMessages('fr'),
@@ -43,6 +56,7 @@ export default getRequestConfig(async ({ locale }: { locale?: string }) => {
     };
   }
 
+  console.log(`✅ Loaded namespaces: ${Object.keys(messages).join(', ')}`);
   return {
     locale,
     messages,

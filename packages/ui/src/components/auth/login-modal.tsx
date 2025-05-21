@@ -1,48 +1,40 @@
 "use client"
 
 import * as React from "react"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog.js"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "../ui/dialog.js"
 import { Button } from "../ui/button.js"
+import { LoginForm } from "./login-form.js"
 
-export function LoginModal() {
+interface LoginModalProps {
+  translations: {
+    welcome: string
+    socialLogin: string
+    orContinueWith: string
+    email: string
+    emailPlaceholder: string
+    password: string
+    forgotPassword: string
+    loginButton: string
+    noAccount: string
+    signUp: string
+    terms: string
+    termsOfService: string
+    and: string
+    privacyPolicy: string
+    loginWithApple: string
+    loginWithGoogle: string
+  }
+}
+
+export function LoginModal({ translations }: LoginModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Se connecter</Button>
+        <Button variant="outline">{translations.loginButton}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Connexion</DialogTitle>
-          <DialogDescription>
-            Connectez-vous à votre compte pour accéder à toutes les fonctionnalités.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          {/* Ici, vous pouvez ajouter votre formulaire de connexion */}
-          <div className="grid grid-cols-4 items-center gap-4">
-            <label htmlFor="email" className="text-right">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="col-span-3 rounded-md border border-input bg-background px-3 py-2"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <label htmlFor="password" className="text-right">
-              Mot de passe
-            </label>
-            <input
-              id="password"
-              type="password"
-              className="col-span-3 rounded-md border border-input bg-background px-3 py-2"
-            />
-          </div>
-        </div>
-        <div className="flex justify-end">
-          <Button type="submit">Se connecter</Button>
-        </div>
+        <DialogTitle className="sr-only">{translations.loginButton}</DialogTitle>
+        <LoginForm translations={translations} />
       </DialogContent>
     </Dialog>
   )

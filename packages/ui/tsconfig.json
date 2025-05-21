@@ -7,6 +7,6 @@
       "@workspace/web/*": ["../../apps/web/*"]
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/web/components/early-access"],
   "exclude": ["node_modules", "dist"]
 }

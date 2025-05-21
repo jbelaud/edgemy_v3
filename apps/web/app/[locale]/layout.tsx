@@ -1,25 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google"
-import { NextIntlClientProvider } from "next-intl"
-import { notFound, redirect } from "next/navigation"
+// app/[locale]/layout.tsx
+import { notFound } from 'next/navigation'
+import { NextIntlClientProvider } from 'next-intl'
+import { locales } from '@/i18n.config'
+import { getMessages } from '@/lib/i18n'
+import { Providers } from '@/components/providers'
+import { cn } from '@/lib/utils'
+import { Inter } from 'next/font/google'
+import '../globals.css'
 
-import "@workspace/ui/globals.css"
-import { Providers } from "@/components/providers"
-import { getMessages } from "@/lib/i18n"
-import { locales, defaultLocale } from "@/i18n.config"
+const inter = Inter({ subsets: ['latin'] })
 
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
-
-export const metadata = {
-  title: "Edgemy | Plateforme de coaching poker",
-  description: "Améliorez votre jeu de poker avec des coachs professionnels et développez votre mental",
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
 }
 
 export default async function LocaleLayout({
@@ -29,24 +21,26 @@ export default async function LocaleLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  const locale = (await Promise.resolve(params)).locale;
-
-  if (!locales.includes(locale as (typeof locales)[number])) {
-    redirect(`/${defaultLocale}`);
+  // Vérification de la locale
+  const locale = await Promise.resolve(params?.locale)
+  if (!locale || !locales.includes(locale as (typeof locales)[number])) {
+    notFound()
   }
 
-  const messages = await getMessages(locale, ['common', 'auth', 'home', 'footer']);
+  const messages = await getMessages(locale, ['common', 'auth', 'home', 'footer', 'early-access'])
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased min-h-screen flex flex-col`}
-      >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', inter.className)}>
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+          now={new Date()}
+          timeZone="Europe/Paris"
+        >
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>
-  );
+  )
 }
-

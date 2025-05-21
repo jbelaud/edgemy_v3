@@ -8,4 +8,7 @@ export * from './components/ui/card.js'
 export * from './components/ui/checkbox.js'
 
 // Auth Components
-export * from './components/auth/login-modal.js' 
+export * from './components/auth/login-modal.js'
+
+// Badge Component
+export * from "./components/badge.js" 

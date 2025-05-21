@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@workspace/ui/*": ["../../packages/ui/src/*"]
+      "@workspace/ui": ["../../packages/ui/src"]
     },
     "plugins": [
       {
@@ -20,7 +20,9 @@
     "types/**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "../../packages/ui/src/components/ui/button.tsx", "../../packages/ui/src/components/ui/card.tsx", "../../packages/ui/src/components/ui/checkbox.tsx", "../../packages/ui/src/components/ui/dialog.tsx", "../../packages/ui/src/components/ui/dropdown-menu.tsx", "../../packages/ui/src/components/ui/input.tsx", "../../packages/ui/src/components/ui/label.tsx", "../../packages/ui/src/components/ui/login-form.tsx", "../../packages/ui/src/components/ui/textarea.tsx"  ],
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/**/*.ts",
+    "../../packages/ui/src/**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

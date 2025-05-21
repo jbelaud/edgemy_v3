@@ -21,10 +21,12 @@ Les utilisateurs (élèves) pourront s'inscrire gratuitement dans un premier tem
 Des pages personnalisés pour les coachs et pour les joueurs afin de se présenter, avoir une bio, leurs objectifs, leurs gains, leurs victoires, etc...
 
 L'application sera sur edgemy.fr 
-Je vais avoir une page spéciale qui sera landing edgemy.fr/landing afin de créer une page de landing page pour récupérer des emails de coachs et de joueurs.
+Je vais avoir une page spéciale qui sera landing edgemy.fr/early-access afin de créer une page de landing page pour récupérer des emails de coachs et de joueurs.
 
 Le site sera en français et en anglais, il y aura un bouton pour choisir sa langue avec préfix pour le seo-friendly
 
 J'utilise toujours pnpm en gestionnaire!!!
+
+Les components ui sont dans package/ui, toujours vérifier et ne pas créer un component sans ma permission
 
 
