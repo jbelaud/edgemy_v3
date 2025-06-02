@@ -29,7 +29,7 @@ export default function Header() {
             whileTap={{ scale: 0.95 }}
             className="flex-shrink-0"
           >
-            <a href="/" className="flex items-center">
+            <a href="/early-access" className="flex items-center">
               <Image
                 src="/images/logo-blanc-edgemy.png"
                 alt="Edgemy"

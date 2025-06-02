@@ -16,7 +16,7 @@ export function Header() {
     <header className="w-full border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/early-access" className="text-xl font-bold">
             Edgemy
           </Link>
           <nav className="hidden md:flex gap-6">
