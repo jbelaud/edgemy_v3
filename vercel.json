@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "turbo build --filter=web",
-  "installCommand": "pnpm install --no-frozen-lockfile --shamefully-hoist",
+  "buildCommand": "cd apps/web && pnpm build",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "outputDirectory": "apps/web/.next"
 } 
