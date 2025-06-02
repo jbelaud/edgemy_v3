@@ -146,7 +146,7 @@ export default function CTASection() {
             {...animationConfig}
           >
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-              Rejoignez la seule plateforme pour trouver votre coach poker ou mental
+              Rejoignez gratuitement la seule plateforme pour trouver votre coach poker ou mental
             </h2>
             
             <motion.p
@@ -155,7 +155,7 @@ export default function CTASection() {
               transition={{ delay: isMobile ? 0.1 : 0.3 }}
               className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto"
             >
-              Edgemy met en relation joueurs et coachs certifiés pour progresser dans tous les aspects du poker : technique et mental.
+              Edgemy met en relation joueurs et coachs certifiés pour progresser dans tous les aspects du poker : technique et mental. <span className="font-semibold text-indigo-600">Inscription 100% gratuite.</span>
             </motion.p>
           </motion.div>
 

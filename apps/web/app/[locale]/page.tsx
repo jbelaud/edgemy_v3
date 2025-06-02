@@ -1,27 +1,28 @@
 import Link from "next/link"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import { getMessages } from '@/lib/i18n'
 
 export const dynamic = 'force-dynamic'
 
 type Props = {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 export async function generateMetadata({ params }: Props) {
-  const locale = (await Promise.resolve(params)).locale;
+  const { locale } = await params;
   const messages = await getMessages(locale, ['common', 'home']);
   return {
     title: messages.home?.metaTitle || 'Edgemy | Plateforme de coaching poker'
   };
 }
 
-export default function HomePage({ params }: Props) {
-  const t = useTranslations("home")
-  const tc = useTranslations("common")
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations("home")
+  const tc = await getTranslations("common")
 
   return (
     <>

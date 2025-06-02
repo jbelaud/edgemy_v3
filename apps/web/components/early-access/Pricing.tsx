@@ -47,7 +47,11 @@ export default function Pricing() {
 
   const handlePricingClick = (role: string) => {
     localStorage.setItem('selectedRole', role);
-    window.location.href = '#inscription';
+    if (role === 'coach_poker') {
+      window.location.href = '#inscription-coach';
+    } else {
+      window.location.href = '#inscription';
+    }
   };
 
   return (

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, CheckCircle2, XCircle, Mail, User, Users, BrainCircuit, AlertCircle, Trophy, Brain, ChevronDown } from 'lucide-react'
 import { useEffect, useState, useCallback } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 
 // Types d'erreurs possibles
 type ErrorType = 'validation' | 'network' | 'server' | 'unknown' | 'security'
@@ -15,6 +15,17 @@ interface ErrorState {
   field?: string
 }
 
+interface ValidationErrors {
+  email?: string
+  name?: string
+  firstName?: string
+}
+
+interface CTASVariant {
+  text: string
+  trackingId: string
+}
+
 // Constantes de sécurité
 const MAX_SUBMISSIONS_PER_HOUR = 5
 const SUBMISSION_COOLDOWN = 1000 // 1 seconde entre chaque soumission
@@ -22,19 +33,19 @@ const MAX_FIELD_LENGTH = 50
 const ALLOWED_CHARS_REGEX = /^[a-zA-ZÀ-ÿ\s\-']+$/
 
 export default function WaitlistForm() {
-  const [email, setEmail] = useState("")
-  const [name, setName] = useState("")
-  const [firstName, setFirstName] = useState("")
-  const [message, setMessage] = useState("")
-  const [role, setRole] = useState("PLAYER")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
+  const [email, setEmail] = useState<string>("")
+  const [name, setName] = useState<string>("")
+  const [firstName, setFirstName] = useState<string>("")
+  const [message, setMessage] = useState<string>("")
+  const [role, setRole] = useState<string>("PLAYER")
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
   const [error, setError] = useState<ErrorState | null>(null)
-  const [submissionCount, setSubmissionCount] = useState(0)
-  const [lastSubmissionTime, setLastSubmissionTime] = useState(0)
+  const [submissionCount, setSubmissionCount] = useState<number>(0)
+  const [lastSubmissionTime, setLastSubmissionTime] = useState<number>(0)
   const router = useRouter()
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
 
 

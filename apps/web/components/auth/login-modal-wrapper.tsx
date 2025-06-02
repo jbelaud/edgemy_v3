@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslations } from "next-intl"
-import { LoginModal } from "@workspace/ui/components/auth/login-modal"
+import { LoginModal } from "@workspace/ui"
 
 export function LoginModalWrapper() {
   const t = useTranslations("auth")

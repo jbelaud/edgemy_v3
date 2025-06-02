@@ -2,12 +2,11 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@workspace/ui/components/ui/button"
 import { useTranslations } from "next-intl"
 import { LanguageSwitcher } from "./language-switcher"
 import { LoginModalWrapper } from "./auth/login-modal-wrapper"
 import { SignUpButton } from "./auth/signup-button"
-import { cn } from "@workspace/ui/lib/utils"
+import { cn } from "@/lib/utils"
 
 export function Header() {
   const t = useTranslations("common")

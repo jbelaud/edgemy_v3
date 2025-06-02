@@ -4,6 +4,7 @@ import Header from "@/components/early-access/Header"
 import HeroSection from "@/components/early-access/HeroSection"
 import Footer from "@/components/early-access/Footer"
 import ScrollToTopButton from "@/components/early-access/ScrollToTopButton"
+import CTACoach from "@/components/early-access/CTACoach"
 
 // Lazy loading des composants lourds
 const Faq = dynamic(() => import("@/components/early-access/Faq"), {
@@ -71,6 +72,9 @@ export default function EarlyAccessPage() {
         <MarketSection />
         <section id="inscription">
           <CTASection />
+        </section>
+        <section id="inscription-coach">
+          <CTACoach />
         </section>
         <Roadmap />
         <Pricing />

@@ -11,6 +11,8 @@ import {
   ArrowDownRight
 } from "lucide-react"
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: "Tableau de bord",
   description: "Tableau de bord administrateur",

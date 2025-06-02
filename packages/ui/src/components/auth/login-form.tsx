@@ -1,21 +1,25 @@
 "use client"
 
-import { cn } from "@workspace/ui/lib/utils"
-import { Button } from "@workspace/ui/components/ui/button"
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime"
+import { cn } from "../../lib/utils"
+import { Button } from "../ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@workspace/ui/components/ui/card"
-import { Input } from "@workspace/ui/components/ui/input"
-import { Label } from "@workspace/ui/components/ui/label"
+} from "../ui/card"
+import { Input } from "../ui/input"
+import { Label } from "../ui/label"
 
 interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
+  className?: string
   translations: {
     welcome: string
     socialLogin: string
+    loginWithApple: string
+    loginWithGoogle: string
     orContinueWith: string
     email: string
     emailPlaceholder: string
@@ -28,16 +32,10 @@ interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
     termsOfService: string
     and: string
     privacyPolicy: string
-    loginWithApple: string
-    loginWithGoogle: string
   }
 }
 
-export function LoginForm({
-  className,
-  translations,
-  ...props
-}: LoginFormProps) {
+export function LoginForm({ className, translations, ...props }: LoginFormProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>

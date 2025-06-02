@@ -1,14 +1,15 @@
 "use client"
 
-import * as React from "react"
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "../ui/dialog.js"
-import { Button } from "../ui/button.js"
-import { LoginForm } from "./login-form.js"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "../ui/dialog"
+import { Button } from "../ui/button"
+import { LoginForm } from "./login-form"
 
 interface LoginModalProps {
   translations: {
     welcome: string
     socialLogin: string
+    loginWithApple: string
+    loginWithGoogle: string
     orContinueWith: string
     email: string
     emailPlaceholder: string
@@ -21,8 +22,6 @@ interface LoginModalProps {
     termsOfService: string
     and: string
     privacyPolicy: string
-    loginWithApple: string
-    loginWithGoogle: string
   }
 }
 

@@ -12,6 +12,7 @@ interface RoadmapItem {
   status: RoadmapStatus;
   features: string[];
   type: 'existing' | 'coach' | 'student' | 'general';
+  group?: number;
 }
 
 const roadmapItems: RoadmapItem[] = [

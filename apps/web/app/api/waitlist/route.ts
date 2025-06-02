@@ -93,7 +93,7 @@ export async function POST(request: Request) {
     });
     console.log('✅ Inscription créée avec succès:', user);
 
-    // Envoyer l'email de confirmation via l'API NestJS
+    // Envoyer l'email de confirmation via l'API NestJS (optionnel)
     console.log('📧 Tentative d\'envoi de l\'email via l\'API NestJS...');
     try {
       const emailResponse = await fetch(`${API_URL}/waitlist`, {
@@ -107,15 +107,19 @@ export async function POST(request: Request) {
           lastName: validatedData.name,
           role: validatedData.role
         }),
+        // Timeout de 5 secondes pour éviter d'attendre trop longtemps
+        signal: AbortSignal.timeout(5000)
       });
 
       if (!emailResponse.ok) {
         console.error('❌ Erreur lors de l\'envoi de l\'email:', await emailResponse.text());
+        console.log('⚠️ L\'inscription a été sauvegardée mais l\'email n\'a pas pu être envoyé');
       } else {
         console.log('✅ Email envoyé avec succès');
       }
     } catch (emailError) {
       console.error('❌ Erreur lors de l\'appel à l\'API NestJS:', emailError);
+      console.log('⚠️ L\'inscription a été sauvegardée mais l\'email n\'a pas pu être envoyé (API NestJS non disponible)');
     }
 
     return NextResponse.json(

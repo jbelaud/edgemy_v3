@@ -1,6 +1,6 @@
 "use client"
 
-import { LandingButton } from "@workspace/ui/components/early-access/button"
+import { LandingButton } from "./landing-button"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link'
 
@@ -53,54 +53,100 @@ export default function HeroSection() {
             Améliorez votre jeu avec des sessions de coaching personnalisées. Connectez-vous facilement avec des pros via Discord et élevez votre niveau de poker.
           </motion.p>
 
-          {/* CTA avec effets interactifs */}
+          {/* CTA avec effets interactifs - Deux boutons centrés */}
           <motion.div
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
-            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="mt-5 max-w-md mx-auto"
+            className="mt-5 max-w-2xl mx-auto"
           >
-            <LandingButton 
-              asChild 
-              variant="primary"
-              size="lg"
-              className="relative overflow-hidden group"
-            >
-              <Link href="#inscription">
-                {/* Fond animé du bouton */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:from-indigo-700 group-hover:to-purple-700"
-                  initial={{ opacity: 1 }}
-                  animate={{
-                    background: [
-                      'linear-gradient(to right, #4f46e5, #7c3aed)',
-                      'linear-gradient(to right, #7c3aed, #4f46e5)'
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                />
-                
-                {/* Texte avec effet de "float" */}
-                <motion.span
-                  className="relative z-10"
-                  animate={{
-                    y: [0, -5, 0],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {/* Bouton Joueurs */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="w-full sm:w-auto"
+              >
+                <LandingButton 
+                  asChild 
+                  variant="primary"
+                  size="lg"
+                  className="relative overflow-hidden group w-full sm:w-auto"
                 >
-                  Rejoindre la liste d'attente 🚀
-                </motion.span>
-              </Link>
-            </LandingButton>
+                  <Link href="#inscription">
+                    {/* Fond animé du bouton */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:from-indigo-700 group-hover:to-purple-700"
+                      initial={{ opacity: 1 }}
+                      animate={{
+                        background: [
+                          'linear-gradient(to right, #4f46e5, #7c3aed)',
+                          'linear-gradient(to right, #7c3aed, #4f46e5)'
+                        ]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse"
+                      }}
+                    />
+                    
+                    {/* Texte avec effet de "float" */}
+                    <motion.span
+                      className="relative z-10"
+                      animate={{
+                        y: [0, -5, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      🎯 Je suis joueur
+                    </motion.span>
+                  </Link>
+                </LandingButton>
+              </motion.div>
+
+              {/* Bouton Coachs */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="w-full sm:w-auto"
+              >
+                <LandingButton 
+                  asChild 
+                  variant="secondary"
+                  size="lg"
+                  className="relative overflow-hidden group w-full sm:w-auto border-2 border-purple-600 text-purple-600 hover:text-white"
+                >
+                  <Link href="#inscription-coach">
+                    {/* Fond animé du bouton */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100"
+                      transition={{
+                        duration: 0.3
+                      }}
+                    />
+                    
+                    {/* Texte avec effet de "float" */}
+                    <motion.span
+                      className="relative z-10"
+                      animate={{
+                        y: [0, -5, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1
+                      }}
+                    >
+                      🎯 Je suis coach
+                    </motion.span>
+                  </Link>
+                </LandingButton>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Éléments décoratifs animés */}

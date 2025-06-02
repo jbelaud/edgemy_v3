@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 import { useTranslations } from "next-intl"
 
 export default function NotFound() {

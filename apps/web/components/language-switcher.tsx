@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation"
 import { useLocale } from "next-intl"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 import { useTranslations } from "next-intl"
 import * as React from "react"
 

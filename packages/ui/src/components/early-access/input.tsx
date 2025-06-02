@@ -1,4 +1,4 @@
-import { cn } from "@workspace/ui/lib/utils.js"
+import { cn } from "../../lib/utils"
 import * as React from "react"
 
 

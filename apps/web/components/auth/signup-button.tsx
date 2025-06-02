@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslations } from "next-intl"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 
 export function SignUpButton() {
   const t = useTranslations("auth")

@@ -1,0 +1,21 @@
+{
+  "title": "Contact",
+  "description": "Get in touch with us",
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send"
+  },
+  "info": {
+    "email": {
+      "title": "Email",
+      "value": "contact@edgemy.fr"
+    },
+    "phone": {
+      "title": "Phone",
+      "value": "+33 7 81 08 48 35"
+    }
+  }
+} 

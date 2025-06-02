@@ -3,10 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useTranslations } from "next-intl"
-import { Button } from "@workspace/ui/components/ui/button"
-import { Input } from "@workspace/ui/components/ui/input"
-import { Textarea } from "@workspace/ui/components/ui/textarea"
-import { Label } from "@workspace/ui/components/ui/label"
+import { Button, Input, Textarea, Label } from "@workspace/ui"
 
 export const dynamic = 'force-dynamic'
 

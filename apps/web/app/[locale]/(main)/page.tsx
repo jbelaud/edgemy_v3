@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Button } from "@workspace/ui/components/ui/button"
+import { Button } from "@workspace/ui"
 import { Footer } from "@/components/footer"
 import { getTranslations } from "next-intl/server"
 import { getMessages } from '@/lib/i18n'

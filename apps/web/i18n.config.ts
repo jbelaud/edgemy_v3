@@ -44,7 +44,7 @@ export default getRequestConfig(async ({locale}) => {
   
   try {
     const messages = await Promise.all(
-      ['common', 'home', 'auth', 'footer', 'early-access'].map(async (ns) => {
+      ['common', 'home', 'auth', 'footer', 'early-access', 'contact'].map(async (ns) => {
         try {
           const module = await import(`./messages/${locale}/${ns}.json`);
           return { [ns]: module.default };
