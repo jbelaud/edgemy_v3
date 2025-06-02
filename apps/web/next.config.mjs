@@ -9,7 +9,6 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   async rewrites() {
     return [
       {
@@ -36,6 +35,24 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Redirection de la page d'accueil vers early-access
+      {
+        source: '/',
+        destination: '/early-access',
+        permanent: true,
+      },
+      // Redirection des locales vers early-access
+      {
+        source: '/fr',
+        destination: '/early-access',
+        permanent: true,
+      },
+      {
+        source: '/en',
+        destination: '/early-access',
+        permanent: true,
+      },
+      // Redirection admin reste active
       {
         source: '/admin',
         destination: '/admin/waitlist',
