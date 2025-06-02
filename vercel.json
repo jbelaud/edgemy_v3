@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "turbo build --filter=web",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "outputDirectory": "apps/web/.next"
+} 
