@@ -1,19 +1,28 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
-  siteUrl: 'https://edgemy.fr',
+const config = {
+  siteUrl: process.env.SITE_URL || 'https://edgemy.fr',
   generateRobotsTxt: true,
-  changefreq: 'weekly',
-  priority: 0.7,
-  sitemapSize: 5000,
-  exclude: ['/api/*'],
+  exclude: ['/admin', '/admin/*', '/api/*'],
+  alternateRefs: [
+    {
+      href: 'https://edgemy.fr/fr',
+      hreflang: 'fr',
+    },
+    {
+      href: 'https://edgemy.fr/en',
+      hreflang: 'en',
+    },
+  ],
+  defaultAlternateRef: 'https://edgemy.fr/fr',
   robotsTxtOptions: {
-    additionalSitemaps: [],
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/*'],
+        disallow: ['/admin', '/api'],
       },
     ],
   },
-} 
+}
+
+export default config 

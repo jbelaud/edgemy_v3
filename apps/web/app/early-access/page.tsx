@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import dynamic from 'next/dynamic'
 import Header from "@/components/early-access/Header"
 import HeroSection from "@/components/early-access/HeroSection"
@@ -27,13 +27,18 @@ const Roadmap = dynamic(() => import("@/components/early-access/Roadmap"), {
   loading: () => <div className="min-h-[400px] flex items-center justify-center">Chargement...</div>
 })
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#4F46E5',
+}
+
 export const metadata: Metadata = {
   title: "Early Access | Edgemy - Plateforme de coaching poker",
   description: "Rejoignez l'Early Access d'Edgemy et soyez parmi les premiers à découvrir la plateforme qui révolutionne le coaching poker. Accès anticipé, tarifs préférentiels et fonctionnalités exclusives.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   robots: "index, follow",
   referrer: "strict-origin-when-cross-origin",
-  themeColor: "#4F46E5",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",

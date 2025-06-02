@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://edgemy.fr
+
+# Sitemaps
+Sitemap: https://edgemy.fr/sitemap.xml

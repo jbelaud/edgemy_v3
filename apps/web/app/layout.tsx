@@ -15,6 +15,7 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Edgemy - Plateforme de coaching poker",
   description: "Edgemy est la plateforme qui révolutionne l'apprentissage du poker.",
+  metadataBase: new URL(process.env.SITE_URL || 'https://edgemy.fr'),
   icons: {
     icon: '/favicon.ico',
     apple: '/favicon.ico',

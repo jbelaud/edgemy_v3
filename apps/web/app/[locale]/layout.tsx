@@ -29,7 +29,7 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const messages = await getMessages(locale, ['common', 'auth', 'home', 'footer', 'early-access'])
+  const messages = await getMessages(locale, ['common', 'auth', 'home', 'footer', 'early-access', 'contact'])
 
   return (
     <html lang={locale} suppressHydrationWarning>
