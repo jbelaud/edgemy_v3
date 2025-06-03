@@ -1,0 +1,47 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../../node_modules/.prisma/client"
+  previewFeatures = ["fullTextIndex", "fullTextSearchPostgres"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Waitlist {
+  id        String       @id @default(uuid())
+  email     String       @unique
+  role      WaitlistRole
+  lastName  String
+  firstName String
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@map("waitlist")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  role      UserRole
+  lastName  String
+  firstName String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+enum WaitlistRole {
+  FUTUR_COACH_POKER
+  FUTUR_COACH_MENTAL
+  FUTUR_ELEVE
+}
+
+enum UserRole {
+  PLAYER
+  COACH_POKER
+  COACH_MENTAL
+  ADMIN
+}
