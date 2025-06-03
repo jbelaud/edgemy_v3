@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd apps/api && npx prisma generate && cd ../web && pnpm build",
+  "buildCommand": "pnpm --filter=api run prisma:generate && pnpm --filter=web build",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "outputDirectory": "apps/web/.next",
   "framework": null
