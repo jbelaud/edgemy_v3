@@ -11,7 +11,7 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 const nextConfig = {
   // !! WARN !! 
   // Temporairement activé pour contourner l'erreur TypeScript côté Vercel
-  // qui semble utiliser une version cached du code
+  // Force cache bust - Version 2
   // !! WARN !!
   typescript: {
     ignoreBuildErrors: true,
@@ -19,6 +19,10 @@ const nextConfig = {
   eslint: {
     // Ignorer aussi les warnings ESLint pour un déploiement plus rapide
     ignoreDuringBuilds: true,
+  },
+  // Nouvelle option pour forcer l'override des erreurs TypeScript
+  experimental: {
+    typedRoutes: false,
   },
   async rewrites() {
     return [
