@@ -1,28 +1,18 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const createNextIntlPlugin = require('next-intl/plugin');
+const { resolve } = require('path');
 
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // !! WARN !! 
-  // Temporairement activé pour contourner l'erreur TypeScript côté Vercel
-  // Force cache bust - Version 2
+  // !! WARN !!
+  // Force ignore TypeScript and ESLint errors for deployment
   // !! WARN !!
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
-    // Ignorer aussi les warnings ESLint pour un déploiement plus rapide
     ignoreDuringBuilds: true,
-  },
-  // Nouvelle option pour forcer l'override des erreurs TypeScript
-  experimental: {
-    typedRoutes: false,
   },
   async rewrites() {
     return [
@@ -40,7 +30,6 @@ const nextConfig = {
       '@workspace/ui/lib/utils': resolve(__dirname, '../../packages/ui/src/lib/utils'),
     };
     
-    // Assurer que les modules du workspace sont correctement résolus
     config.resolve.extensionAlias = {
       '.js': ['.js', '.ts', '.tsx'],
       '.jsx': ['.jsx', '.tsx'],
@@ -50,13 +39,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirection de la page d'accueil vers early-access
       {
         source: '/',
         destination: '/early-access',
         permanent: true,
       },
-      // Redirection des locales vers early-access
       {
         source: '/fr',
         destination: '/early-access',
@@ -67,7 +54,6 @@ const nextConfig = {
         destination: '/early-access',
         permanent: true,
       },
-      // Redirection admin reste active
       {
         source: '/admin',
         destination: '/admin/waitlist',
@@ -77,4 +63,4 @@ const nextConfig = {
   }
 };
 
-export default withNextIntl(nextConfig);
+module.exports = withNextIntl(nextConfig); 
