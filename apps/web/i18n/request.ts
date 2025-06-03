@@ -1,35 +1,23 @@
 import { getRequestConfig } from 'next-intl/server';
 import { locales } from '../i18n.config';
-import fs from 'fs';
-import path from 'path';
 
 type Messages = Record<string, unknown>;
 
-function loadMessages(locale: string): Messages {
-  const namespaces = ['common', 'home', 'auth', 'footer'];
+async function loadMessages(locale: string): Promise<Messages> {
+  const namespaces = ['common', 'home', 'auth', 'footer', 'contact'];
   const messages: Messages = {};
 
   for (const ns of namespaces) {
     try {
-      const filePath = path.join(process.cwd(), 'messages', locale, `${ns}.json`);
-      console.log(`📂 Loading messages from: ${filePath}`);
+      // Utiliser import dynamique au lieu de fs pour compatibilité Edge Runtime
+      const messageModule = await import(`../messages/${locale}/${ns}.json`).catch(() => null);
       
-      if (!fs.existsSync(filePath)) {
-        console.warn(`⚠️ File does not exist: ${filePath}`);
-        continue;
+      if (messageModule?.default) {
+        messages[ns] = messageModule.default;
+        console.log(`✅ Successfully loaded ${ns} messages for ${locale}`);
+      } else {
+        console.warn(`⚠️ No messages found for ${locale}/${ns}.json`);
       }
-
-      const data = JSON.parse(
-        fs.readFileSync(filePath, 'utf-8')
-      );
-
-      if (!data || typeof data !== 'object') {
-        console.warn(`⚠️ Invalid JSON data in: ${filePath}`);
-        continue;
-      }
-
-      messages[ns] = data;
-      console.log(`✅ Successfully loaded ${ns} messages for ${locale}`);
     } catch (err) {
       console.error(`❌ Error loading messages for ${locale}/${ns}.json:`, err);
     }
@@ -45,13 +33,13 @@ export default getRequestConfig(async ({ locale }: { locale?: string }) => {
   }
 
   console.log(`🌍 Loading messages for locale: ${locale}`);
-  const messages = loadMessages(locale);
+  const messages = await loadMessages(locale);
 
   if (Object.keys(messages).length === 0 && locale !== 'fr') {
     console.warn(`🔁 No messages found for ${locale}, falling back to French`);
     return {
       locale: 'fr',
-      messages: loadMessages('fr'),
+      messages: await loadMessages('fr'),
       timeZone: 'Europe/Paris'
     };
   }

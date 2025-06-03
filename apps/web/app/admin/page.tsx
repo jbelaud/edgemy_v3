@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: "Tableau de bord administrateur",
 }
 
+// Type pour les rôles de la waitlist
+type WaitlistRole = 'FUTUR_ELEVE' | 'FUTUR_COACH_POKER' | 'FUTUR_COACH_MENTAL'
+
 async function getStats() {
   const total = await prisma.waitlist.count()
   const byRole = await prisma.waitlist.groupBy({
@@ -42,13 +45,13 @@ async function getStats() {
 export default async function AdminPage() {
   const stats = await getStats()
   
-  const roleCounts = {
+  const roleCounts: Record<WaitlistRole, number> = {
     FUTUR_ELEVE: 0,
     FUTUR_COACH_POKER: 0,
     FUTUR_COACH_MENTAL: 0
   }
   
-  stats.byRole.forEach(role => {
+  stats.byRole.forEach((role: { role: WaitlistRole; _count: number }) => {
     roleCounts[role.role] = role._count
   })
 
