@@ -2,56 +2,21 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "globalDependencies": [".env"],
-  "tasks": {
+  "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-      "env": [
-        "NODE_ENV",
-        "SITE_URL",
-        "CORS_ORIGIN",
-        "COOKIE_DOMAIN",
-        "PORT",
-        "FRONTEND_URL",
-        "DATABASE_URL",
-        "BREVO_API_KEY",
-        "BREVO_EMAIL_FROM",
-        "BREVO_SENDER_NAME",
-        "ADMIN_EMAIL",
-        "ADMIN_PASSWORD",
-        "JWT_SECRET",
-        "WT_SECRET",
-        "ADMIN_SECRET_KEY"
-      ]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     },
     "lint": {
-      "dependsOn": ["^lint"],
       "outputs": []
     },
     "check-types": {
       "dependsOn": ["^check-types"],
       "outputs": []
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true,
-      "env": [
-        "NODE_ENV",
-        "SITE_URL",
-        "CORS_ORIGIN",
-        "COOKIE_DOMAIN",
-        "PORT",
-        "FRONTEND_URL",
-        "DATABASE_URL",
-        "BREVO_API_KEY",
-        "BREVO_EMAIL_FROM",
-        "BREVO_SENDER_NAME",
-        "ADMIN_EMAIL",
-        "ADMIN_PASSWORD",
-        "JWT_SECRET",
-        "WT_SECRET",
-        "ADMIN_SECRET_KEY"
-      ]
     },
     "test": {
       "dependsOn": ["^build"],

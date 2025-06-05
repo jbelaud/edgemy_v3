@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "cd ../.. && pnpm install && cd packages/ui && pnpm build && cd ../../apps/api && pnpm prisma generate && cd ../web && pnpm build",
-  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd apps/web && pnpm install && pnpm build",
+  "installCommand": "cd apps/web && pnpm install",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs"
-} 
+}
