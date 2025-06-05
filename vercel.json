@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "pnpm --filter=api run prisma:generate && pnpm --filter=web build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "cd ../.. && pnpm install && cd packages/ui && pnpm build && cd ../../apps/api && pnpm prisma generate && cd ../web && pnpm build",
+  "installCommand": "cd ../.. && pnpm install",
   "outputDirectory": "apps/web/.next",
-  "framework": null
+  "framework": "nextjs"
 } 
