@@ -6,23 +6,6 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
-      {/* Effet de fond animé */}
-      {/* <motion.div
-        className="absolute inset-0 opacity-10"
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 360],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      >
-        <div className="absolute top-20 left-1/4 w-32 h-32 bg-black-200 rounded-full blur-xl" />
-        <div className="absolute top-40 right-20 w-24 h-24 bg-red-200 rounded-full blur-xl" />
-      </motion.div> */}
-
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8 relative z-10">
         {/* Liens vers les réseaux sociaux avec animations */}
         <div className="flex justify-center space-x-6 md:order-2">
