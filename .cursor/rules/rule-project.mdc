@@ -30,3 +30,6 @@ J'utilise toujours pnpm en gestionnaire!!!
 Les components ui sont dans package/ui, toujours vérifier et ne pas créer un component sans ma permission
 
 
+Tu dois suivre les meilleurs pratiques pour un projet monorepo nextjs et nestjs, vérifie la doc à chaque fois  
+
+

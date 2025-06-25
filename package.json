@@ -8,9 +8,13 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo clean",
-    "test": "turbo test",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "test:coverage": "turbo run test:coverage",
+    "test:e2e": "turbo run test:e2e",
     "check-types": "turbo check-types",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prisma:generate:all": "pnpm --filter ./apps/api prisma:generate && pnpm --filter ./apps/web prisma:generate"
   },
   "devDependencies": {
     "@nestjs/testing": "^11.1.0",
