@@ -1,4 +1,5 @@
 import createNextIntlPlugin from 'next-intl/plugin';
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
@@ -27,7 +28,7 @@ const nextConfig = {
     ];
   },
   transpilePackages: ["@workspace/ui"],
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@workspace/ui/lib/utils.js': resolve(__dirname, '../../packages/ui/src/lib/utils'),
@@ -38,6 +39,11 @@ const nextConfig = {
       '.js': ['.js', '.ts', '.tsx'],
       '.jsx': ['.jsx', '.tsx'],
     };
+
+    // Add Prisma plugin for monorepo support on Vercel
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaPlugin()];
+    }
     
     return config;
   },

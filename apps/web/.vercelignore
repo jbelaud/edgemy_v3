@@ -1,0 +1,22 @@
+# Prisma
+prisma/migrations/
+prisma/dev.db*
+
+# Tests
+__tests__/
+**/*.test.*
+**/*.spec.*
+coverage/
+jest.config.*
+
+# Development
+.env.local
+.env.development
+
+# Build artifacts
+.next/
+dist/
+build/
+
+# Dependencies
+node_modules/ 

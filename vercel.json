@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "buildCommand": "pnpm build --filter web...",
+    "buildCommand": "cd apps/web && pnpm vercel-build",
     "installCommand": "pnpm install",
     "outputDirectory": "apps/web/.next",
     "framework": "nextjs"
