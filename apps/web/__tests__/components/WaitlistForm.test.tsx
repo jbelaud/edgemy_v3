@@ -6,15 +6,30 @@ import '@testing-library/jest-dom'
 const mockFetch = jest.fn()
 global.fetch = mockFetch
 
+// Define types for form data and errors
+interface FormData {
+  email: string
+  firstName: string
+  lastName: string
+  role: string
+}
+
+interface FormErrors {
+  email?: string
+  firstName?: string
+  lastName?: string
+  role?: string
+}
+
 // Mock the WaitlistForm component since we don't have the actual implementation
 const MockWaitlistForm = () => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = React.useState<FormData>({
     email: '',
     firstName: '',
     lastName: '',
     role: '',
   })
-  const [errors, setErrors] = React.useState({})
+  const [errors, setErrors] = React.useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitStatus, setSubmitStatus] = React.useState('')
 
@@ -23,7 +38,7 @@ const MockWaitlistForm = () => {
     setIsSubmitting(true)
 
     // Validation
-    const newErrors: any = {}
+    const newErrors: FormErrors = {}
     if (!formData.email) newErrors.email = "L'email est requis"
     if (!formData.firstName) newErrors.firstName = 'Le prénom est requis'
     if (!formData.lastName) newErrors.lastName = 'Le nom est requis'
