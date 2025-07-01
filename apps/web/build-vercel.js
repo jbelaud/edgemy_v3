@@ -7,16 +7,16 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log('🔄 Génération du client Prisma...');
+console.log('🔄 Génération du client Prisma pour le web...');
 
 try {
-  // Génération du client Prisma
-  execSync('prisma generate --schema=../../packages/prisma/schema.prisma', {
+  // Génération du client Prisma spécifique au web
+  execSync('pnpm prisma:generate', {
     stdio: 'inherit',
     cwd: __dirname
   });
   
-  console.log('✅ Client Prisma généré avec succès');
+  console.log('✅ Client Prisma web généré avec succès');
   
   // Vérifier si nous sommes sur Vercel et si DATABASE_URL est définie
   const isVercel = process.env.VERCEL === '1';
@@ -24,7 +24,7 @@ try {
   
   if (isVercel && hasDatabaseUrl) {
     console.log('🚀 Déploiement des migrations Prisma...');
-    execSync('prisma migrate deploy --schema=../../packages/prisma/schema.prisma', {
+    execSync('pnpm prisma:deploy', {
       stdio: 'inherit',
       cwd: __dirname
     });
@@ -34,7 +34,7 @@ try {
   }
   
   console.log('📦 Build de l\'application Next.js...');
-  execSync('next build', {
+  execSync('npx next build', {
     stdio: 'inherit',
     cwd: __dirname
   });
