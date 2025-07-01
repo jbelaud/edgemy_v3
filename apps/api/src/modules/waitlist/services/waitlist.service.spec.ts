@@ -40,11 +40,11 @@ describe('WaitlistService', () => {
 
   describe('create', () => {
     const validCreateWaitlistDto: CreateWaitlistDto = {
-      email: 'test@example.com',
+        email: 'test@example.com',
       role: WaitlistRole.FUTUR_COACH_POKER,
       lastName: 'Doe',
-      firstName: 'John',
-    };
+        firstName: 'John',
+      };
 
     it('should create a new waitlist entry successfully', async () => {
       const expectedResult = {
