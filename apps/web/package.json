@@ -33,7 +33,7 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-table": "^8.21.3",
     "@types/jsonwebtoken": "^9.0.9",
-    "@workspace/ui": "workspace:*",
+    "@workspace/ui": "file:../../packages/ui",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.10.1",
