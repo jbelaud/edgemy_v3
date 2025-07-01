@@ -33,6 +33,8 @@ const nextConfig = {
       ...config.resolve.alias,
       '@workspace/ui/lib/utils.js': resolve(__dirname, '../../packages/ui/src/lib/utils'),
       '@workspace/ui/lib/utils': resolve(__dirname, '../../packages/ui/src/lib/utils'),
+      '.prisma/client': resolve(__dirname, './node_modules/.prisma/client'),
+      '@prisma/client': resolve(__dirname, './node_modules/.prisma/client'),
     };
     
     config.resolve.extensionAlias = {
@@ -42,7 +44,9 @@ const nextConfig = {
 
     // Add Prisma plugin for monorepo support on Vercel
     if (isServer) {
-      config.plugins = [...config.plugins, new PrismaPlugin()];
+      config.plugins = [...config.plugins, new PrismaPlugin({ 
+        schema: resolve(__dirname, '../../packages/prisma/schema.prisma')
+      })];
     }
     
     return config;
