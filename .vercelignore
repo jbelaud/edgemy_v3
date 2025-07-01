@@ -2,7 +2,25 @@ node_modules
 .next
 .turbo
 .git
-apps/api
 *.md
 .env.local
-.env.example 
+.env.example
+
+# Exclure le contenu de l'API mais garder la structure
+apps/api/src
+apps/api/test
+apps/api/dist
+apps/api/.env*
+apps/api/README.md
+apps/api/nest-cli.json
+apps/api/eslint.config.mjs
+apps/api/jest.config.ts
+apps/api/clean.sql
+
+# Exclure les fichiers de test spécifiques
+**/*.test.tsx
+**/*.test.ts
+**/*.spec.ts
+**/jest.config.js
+**/jest.config.ts
+**/jest.setup.js 
