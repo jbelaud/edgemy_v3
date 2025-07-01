@@ -1,6 +1,13 @@
-generator client {
+generator client_api {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearchPostgres"]
+  output          = "../../apps/api/node_modules/.prisma/client"
+}
+
+generator client_web {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
+  output          = "../../apps/web/node_modules/.prisma/client"
 }
 
 datasource db {
